@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 целей — Таалайбек</title>
+<style>
+  :root {
+    --bg:#0f1720; --card:#0b1220; --accent:#ff6b35; --white:#f8fafc; --muted:#9aa4b2;
+    --glass: rgba(255,255,255,0.03); --glass-2: rgba(255,255,255,0.02);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background: linear-gradient(180deg,#07101a 0%,var(--bg)100%); color:var(--white); min-height:100vh; display:flex; justify-content:center; align-items:flex-start; padding:20px; line-height:1.5; overflow-x:hidden;}
+  .container{max-width:1000px;width:100%;}
+  header{text-align:center;margin-bottom:24px;}
+  header .logo{width:64px;height:64px;margin:0 auto 12px auto;border-radius:12px; background: linear-gradient(135deg, rgba(255,107,53,0.18), rgba(255,107,53,0.06)); display:flex; align-items:center; justify-content:center; font-weight:700;font-size:26px;color:var(--accent);}
+  header h1{font-size:32px;margin-bottom:12px;}
+  header .quote{font-size:18px;color:var(--accent);}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .card{background:var(--card);padding:16px;border-radius:14px;border:1px solid var(--glass-2);display:flex;flex-direction:column; transition: transform 0.3s ease, box-shadow 0.3s ease;}
+  .card:hover{transform: translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.3);}
+  .card h2{font-size:18px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+  .card ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:8px;}
+  .card li{display:flex;gap:10px;align-items:center;background:var(--glass);padding:8px;border-radius:10px; cursor:pointer; transition: background 0.2s;}
+  .card li.completed{background: linear-gradient(90deg, rgba(40,167,69,0.3), rgba(40,167,69,0.2)); color:#28a745;}
+  .bullet{width:32px;height:32px;display:inline-grid;place-items:center;border-radius:8px;background:linear-gradient(180deg, rgba(255,107,53,0.06), rgba(255,107,53,0.02)); color:var(--accent);font-weight:700; transition: background 0.2s;}
+  .text{flex:1;font-size:14px;}
+  footer{text-align:center;color:var(--muted);margin-top:20px;}
+  button{padding:10px 16px;border:none;border-radius:10px;background:var(--accent);color:#08121b;font-weight:700;cursor:pointer; margin:6px 0; width:100%; font-size:16px;}
+  .about, .carInfo{text-align:left;background:var(--card);padding:20px;border-radius:14px;border:1px solid var(--glass-2); min-height:200px; margin-top:10px; display:none; transition: all 0.3s ease;}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:650px){.grid{grid-template-columns:1fr;} header h1{font-size:26px;}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo">30</div>
+    <h1>30 целей — Таалайбек</h1>
+    <div class="quote">“Человек получил лишь то, к чему он стремился.”</div>
+  </header>
+
+  <!-- Кнопки -->
+  <button id="aboutBtn">О себе</button>
+  <div class="about" id="aboutInfo">
+    <p>Привет! Я Таалайбек, родился 17 мая 2007 года в Кыргызстане. После 9-го класса в 2023 году переехал в другой город для учёбы, совмещал обучение и работу.</p>
+    <p>В школьные годы занимался дзюдо 🥋, на соревнованиях занял 3-е место. Позже забросил спорт. В 2024 году ходил в качалку, принимал спортивные добавки, потом заболел ангиной и временно прекратил тренировки. В 2025 году занимался боксом 3–4 месяца, но пришлось остановиться из-за старой травмы и экзаменов.</p>
+    <p>После колледжа (2025 год, диплом и аттестат) работал поваром, покупал одежду себе и сестре, оплачивал квартиру. В 2025 году переехал в Москву, обеспечиваю себя сам. Работал в Билайн месяц, ушёл из-за графика, коллектива и нестабильной зарплаты.</p>
+    <p>Через 5–7 лет вижу себя успешным человеком, который не зависит от денег, ведь их будет много 😂. Хочу обеспечить семью, показать мир 🌍, подарить маме дом и машину.Планирую совмещать учебу, спорт и работу, вести блог, открыть бизнес и купить необычную машину.</p>
+  </div>
+
+  <button id="carBtn">Машина</button>
+  <div class="carInfo" id="carInfo">
+    <p>Моя мечта — Лексус IS 350, особенно нравится задний дизайн. Также мечтаю о Porsche, Lamborghini и Koenigsegg, так как это уникальные машины, которых нет у всех.</p>
+    <p>Ведь машина показывает статус человека и уровень, на котором он находится.</p>
+  </div>
+
+  <!-- 30 целей -->
+  <div class="grid">
+    <!-- Короткий срок -->
+    <div class="card">
+      <h2>🕒 Короткий срок <span style="font-size:13px">1–3 месяца</span></h2>
+      <ul>
+        <li data-id="short1"><div class="bullet">1</div><div class="text">Оплатить квартиру, чтобы чувствовать финансовую стабильность и ответственность.</div></li>
+        <li data-id="short2"><div class="bullet">2</div><div class="text">Купить спортивные добавки для поддержки организма и ускорения прогресса в тренировках.</div></li>
+        <li data-id="short3"><div class="bullet">3</div><div class="text">Записаться в спортзал и начать системные тренировки.</div></li>
+        <li data-id="short4"><div class="bullet">4</div><div class="text">Вернуться в форму и восстановить свой прежний «прайм».</div></li>
+        <li data-id="short5"><div class="bullet">5</div><div class="text">Начать вести блог — делиться мыслями, опытом и вдохновлять других.</div></li>
+        <li data-id="short6"><div class="bullet">6</div><div class="text">Записаться на обучающие курсы (Kali Linux, саморазвитие).</div></li>
+        <li data-id="short7"><div class="bullet">7</div><div class="text">Изучить основы Kali Linux и развить технические навыки.</div></li>
+        <li data-id="short8"><div class="bullet">8</div><div class="text">Составить личный финансовый план и начать контролировать доходы и расходы.</div></li>
+        <li data-id="short9"><div class="bullet">9</div><div class="text">Начать откладывать деньги на подарки для семьи.</div></li>
+        <li data-id="short10"><div class="bullet">10</div><div class="text">Наладить режим сна, питания и распорядок дня.</div></li>
+      </ul>
+    </div>
+
+    <!-- Средний срок -->
+    <div class="card">
+      <h2>⚙️ Средний срок <span style="font-size:13px">5 мес – 1 год</span></h2>
+      <ul>
+        <li data-id="medium1"><div class="bullet">1</div><div class="text">Купить маме и сестре айфоны.</div></li>
+        <li data-id="medium2"><div class="bullet">2</div><div class="text">Серьёзно прокачать физическую форму.</div></li>
+        <li data-id="medium3"><div class="bullet">3</div><div class="text">Развить блог и набрать аудиторию.</div></li>
+        <li data-id="medium4"><div class="bullet">4</div><div class="text">Пройти курсы до конца и применить знания.</div></li>
+        <li data-id="medium5"><div class="bullet">5</div><div class="text">Углубить знания в Kali Linux, анализ сайтов и API.</div></li>
+        <li data-id="medium6"><div class="bullet">6</div><div class="text">Создать стабильный источник онлайн-дохода.</div></li>
+        <li data-id="medium7"><div class="bullet">7</div><div class="text">Помочь семье материально.</div></li>
+        <li data-id="medium8"><div class="bullet">8</div><div class="text">Организовать небольшое путешествие по России или СНГ.</div></li>
+        <li data-id="medium9"><div class="bullet">9</div><div class="text">Начать копить на автомобиль для мамы.</div></li>
+        <li data-id="medium10"><div class="bullet">10</div><div class="text">Развить дисциплину, чтобы держать баланс между работой, учёбой и отдыхом.</div></li>
+      </ul>
+    </div>
+
+    <!-- Долгий срок -->
+    <div class="card">
+      <h2>🏆 Долгий срок <span style="font-size:13px">от 1 года</span></h2>
+      <ul>
+        <li data-id="long1"><div class="bullet">1</div><div class="text">Купить маме машину.</div></li>
+        <li data-id="long2"><div class="bullet">2</div><div class="text">Приобрести несколько квартир в разных городах.</div></li>
+        <li data-id="long3"><div class="bullet">3</div><div class="text">Достроить свой дом.</div></li><li data-id="long4"><div class="bullet">4</div><div class="text">Отправить семью в отпуск за границу.</div></li>
+        <li data-id="long5"><div class="bullet">5</div><div class="text">Путешествовать самому.</div></li>
+        <li data-id="long6"><div class="bullet">6</div><div class="text">Создать успешный бизнес.</div></li>
+        <li data-id="long7"><div class="bullet">7</div><div class="text">Достичь финансовой свободы.</div></li>
+        <li data-id="long8"><div class="bullet">8</div><div class="text">Сохранять здоровье и физическую форму.</div></li>
+        <li data-id="long9"><div class="bullet">9</div><div class="text">Научиться грамотно инвестировать.</div></li>
+        <li data-id="long10"><div class="bullet">10</div><div class="text">Прыгнуть с парашюта — люблю адреналин.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Автор: <strong>Таалайбек</strong>
+  </footer>
+</div>
+
+<script>
+  // Показ и скрытие информации о себе
+  const aboutBtn = document.getElementById('aboutBtn');
+  const aboutInfo = document.getElementById('aboutInfo');
+  aboutBtn.addEventListener('click', () => {
+    aboutInfo.style.display = aboutInfo.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Показ и скрытие информации о машине
+  const carBtn = document.getElementById('carBtn');
+  const carInfo = document.getElementById('carInfo');
+  carBtn.addEventListener('click', () => {
+    carInfo.style.display = carInfo.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Отметка целей как выполненных
+  function toggleComplete(el){
+    el.classList.toggle('completed');
+    let id = el.dataset.id;
+    if(el.classList.contains('completed')){
+      el.querySelector('.text').textContent = '✅ ' + el.querySelector('.text').textContent.replace('✅ ','');
+      localStorage.setItem(id,'true');
+    } else {
+      el.querySelector('.text').textContent = el.querySelector('.text').textContent.replace('✅ ','');
+      localStorage.setItem(id,'false');
+    }
+  }
+
+  // Назначаем обработчик для всех элементов списка
+  document.querySelectorAll('li[data-id]').forEach(li => {
+    li.addEventListener('click', () => toggleComplete(li));
+  });
+
+  // Загрузка состояния из localStorage
+  window.addEventListener('load', () => {
+    document.querySelectorAll('li[data-id]').forEach(li => {
+      if(localStorage.getItem(li.dataset.id) === 'true'){
+        li.classList.add('completed');
+        li.querySelector('.text').textContent = '✅ ' + li.querySelector('.text').textContent.replace('✅ ','');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
